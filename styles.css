@@ -1,0 +1,268 @@
+:root {
+/* Couleur principale // Primary color */
+    --green-400: hsl(172, 67%, 45%);
+/* Couleurs neutres // Neutral colors */
+    --green-900: hsl(183, 100%, 15%);
+    --grey-500: hsl(186, 14%, 43%);
+    --grey-400: hsl(184, 14%, 56%);
+    --grey-200: hsl(185, 41%, 84%);
+    --grey-50: hsl(189, 47%, 97%);
+    --white: hsl(0, 100%, 100%);
+}
+
+body {
+      background-color: hsl(185, 41%, 84%); /* Grey 200 */
+      /* Pour activer le mode Flexbox // To enable Flexbox mode */
+      display: flex; 
+      /* Pour que les éléments enfants soient disposés en colonne // Stack child elements in a column */
+      flex-direction: column; 
+      /* Pour centrer horizontalement (gauche - droite) // Center horizontally (left - right) */
+      justify-content: center; 
+      /* Pour centrer verticalement (haut - bas) // Center vertically (top - bottom) */
+      align-items: center; 
+      /* Donne au body la hauteur totale de la fenêtre visible // Gives body the full visible viewport height */
+      min-height: 100vh; 
+      /* Supprime les marges par défaut du navigateur // Removes default browser margins */
+      margin: 0; 
+      font-family: "Space Mono", monospace;
+    }
+
+/* Réinitialiser la police CSS et appliquer la police du body // Reset CSS Font and apply the body font */
+button, 
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.logo {
+      width: 80px;
+      margin: 40px;
+    }
+
+/* Mobile par défaut (1 colonne) // Mobile by default (1 column) */
+.card-tips {
+      /* S'adapte avec un peu de marge sur les très petits écrans // Adapts with a small margin on tiny screens */
+      width: 90%; 
+      /* Empêche la carte de grandir au-delà de sa taille idéale // Prevents card from growing beyond ideal size */
+      max-width: 860px; 
+      background-color: var(--white); /* White */
+      border-radius: 25px;
+      padding: 30px;
+      /* horizontal vertical flou couleur // horizontal vertical blur color */
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
+      font-weight: bold;
+
+      display: grid;
+      /* 1 colonne sur mobile // 1 column on mobile */
+      grid-template-columns: 1fr; 
+      /* espace entre 2 sections // space between 2 sections */
+      gap: 20px; 
+    }
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+label,
+.label-title,
+.people-header {
+    color: var(--grey-400);
+    font-size: 12px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tip-options {
+    display: grid;
+    /* 2 colonnes x 3 lignes sur mobile // 2 columns x 3 rows on mobile */
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tip-btn {
+    background-color: var(--green-900);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.tip-btn:hover {
+    background-color: var(--grey-200);
+    color: var(--green-900);
+    cursor: pointer;
+}
+
+.tip-btn.active {
+    background-color: var(--green-400);
+    color: var(--green-900);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13px;
+}
+
+/* Masque les flèches pour Chrome, Safari, Edge, Opera // Hide arrows for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Masque les flèches pour Firefox // Hide arrows for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Standard moderne // Modern standard */
+  appearance: textfield;
+}
+
+input {
+    width: 100%;
+    text-align: right;
+    padding: 10px 15px 10px 40px;
+    /* Inclure le rembourrage et la bordure dans la largeur et hauteur totales // Include padding and border in the element's total width and height */
+    box-sizing: border-box;
+    background-color: var(--grey-50);
+    /* retire la bordure // removes border */
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--green-900);
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: var(--grey-400);
+}
+
+input:focus {
+    outline: 2px solid var(--green-400);
+}
+
+input.error:focus {
+    outline: 2px solid rgb(228, 119, 17);
+}
+
+#custom-tip {
+    padding: 10px;
+    text-align: right;
+}
+
+#custom-tip::placeholder {
+    color: var(--grey-500);
+    text-align: center;
+}
+
+.people-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-msg {
+    font-size: 12px;
+    color: rgb(228, 119, 17);
+    display: none;
+}
+
+.calculator-results {
+    background-color: var(--green-900);
+    border-radius: 15px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p.title {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+p.subtitle {
+    color: var(--grey-400);
+    font-size: 11px;
+    font-weight: bolder;
+}
+
+.amount {
+    font-size: 35px;
+    color: var(--green-400);
+    font-weight: bold;
+}
+
+.reset-btn {
+    width: 100%;
+    margin-top: auto;
+    background-color: var(--green-400);
+    color: var(--green-900);
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.reset-btn:hover {
+    background-color: var(--grey-200);
+    color: var(--green-900);
+    cursor: pointer;
+}
+
+.reset-btn:disabled {
+    background-color: var(--green-400);
+    opacity: 0.30;
+    /* not-allowed est synonyme de "non autorisé" // not-allowed is synonym for "not authorized" */
+    cursor: not-allowed;
+    font-weight: bold;
+}
+
+.attribution {
+      font-size: 0.6875rem;
+      text-align: center;
+      padding-bottom: 10px;
+      margin-top: auto;
+    }
+
+.attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+
+/* Version ordinateur (2 colonnes égales côte à côte) // Desktop version (2 equal columns side by side) */
+@media (min-width: 768px) 
+{
+    .card-tips {
+        /* 2 colonnes égales côte à côte // 2 equal columns side by side */
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        padding: 45px;
+    }
+
+    .tip-options {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
