@@ -69,6 +69,25 @@ Réaliser ce défi m'a permis de renforcer ma compréhension de la manipulation 
 4. **Nettoyage automatique de la saisie** : Reformater dynamiquement des valeurs brutes comme `"015"` en `15` pour garantir une expérience utilisateur propre.
 5. **Positionnement relatif et absolu** : Placer des icônes vectorielles dans les champs de saisie avec un centrage vertical parfait grâce à `transform: translateY(-50%)`.
 
+### Bonnes pratiques & Règles d'accessibilité (Best Practices)
+
+Lors de ce projet et de l'audit automatique Frontend Mentor, j'ai identifié plusieurs règles clés à conserver pour mes futurs développements :
+
+1. **Sémantique & Landmarks HTML5** :
+   - Toujours englober le contenu principal dans une balise unique `<main>`.
+   - Inclure au moins un titre principal `<h1>` par page. S'il n'est pas présent visuellement dans le design, utiliser la classe utilitaire `.sr-only` (Screen Reader Only) pour le rendre accessible aux lecteurs d'écran.
+
+2. **Formulaires & Boutons Submit** :
+   - Tout formulaire `<form>` doit contenir un mécanisme de soumission accessible. En l'absence de bouton de validation explicite, ajouter un bouton masqué `<button type="submit" class="sr-only">` et neutraliser la soumission par défaut via `onsubmit="return false;"`.
+
+3. **Performance & Sécurité des liens** :
+   - Placer les scripts dans la balise `<head>` en utilisant l'attribut `defer` (`<script src="script.js" defer></script>`) pour garantir un chargement fluide du DOM avant l'exécution du code JS.
+   - Ajouter `target="_blank" rel="noopener"` sur tous les liens externes pour protéger contre les attaques de type *tabnabbing* et optimiser les performances multi-processus.
+
+4. **Variables JavaScript** :
+   - Préférer systématiquement `const` à `let` pour toutes les variables stockant des valeurs intermédiaires qui ne subissent pas de réassignation ultérieure (ex: `const customVal = parseFloat(...)`).
+
+
 ```javascript
 // Validation du pourboire Custom pour sécuriser les calculs
 if (!isNaN(customVal) && customVal >= 0) {
@@ -182,6 +201,25 @@ Working through this challenge strengthened my understanding of DOM manipulation
 3. **Error Handling & State Overrides**: Displaying the error message dynamically ("Can't be zero") and overriding standard focus outlines using `input.error:focus`.
 4. **Input Formatting**: Automatically converting raw inputs like `"015"` to `15` to ensure a clean user experience.
 5. **Relative/Absolute Positioning**: Placing vector icons inside input fields with vertical centering using `transform: translateY(-50%)`.
+
+### Best Practices & Accessibility Guidelines
+
+Through this project and the automated Frontend Mentor report, I consolidated several key rules to apply across future challenges:
+
+1. **HTML5 Semantics & Landmarks**:
+   - Always wrap primary page content inside a single `<main>` element.
+   - Ensure every page features a level-one heading (`<h1>`). If not visually required by the design, provide an accessible title using a `.sr-only` (Screen Reader Only) utility class.
+
+2. **Forms & Submit Accessibility**:
+   - Every `<form>` element requires a submit mechanism. When no explicit submit button exists, include a hidden `<button type="submit" class="sr-only">` and prevent accidental reloads using `onsubmit="return false;"`.
+
+3. **Performance & Link Security**:
+   - Load JavaScript files in the `<head>` using the `defer` attribute (`<script src="script.js" defer></script>`) to ensure non-blocking HTML parsing.
+   - Always append `target="_blank" rel="noopener"` to external links to mitigate tabnabbing security risks and optimize browser memory handling.
+
+4. **JavaScript Variable Scoping**:
+   - Consistently prefer `const` over `let` for variables holding intermediate parsed values that are never reassigned (e.g., `const customVal = parseFloat(...)`).
+
 
 ```javascript
 // Validating custom tip input to prevent NaN calculations

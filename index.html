@@ -21,12 +21,19 @@
 </head>
 
 <body>
+  <header>
+    <img class="logo" src="./images/logo.svg" alt="Logo tip calculator app">
+  </header>
 
-  <img class="logo" src="./images/logo.svg" alt="Logo tip calculator app">
+<main>
+  <!-- Titre h1 invisible pour les lecteurs d'écran (exigé par Frontend Mentor) -->
+  <h1 class="sr-only">Tip Calculator Application</h1>
 
   <div class="card-tips">
 
-    <form class="calculator-form">
+    <!-- Formulaire avec neutralisation de la soumission -->
+    <form class="calculator-form" onsubmit="return false;">
+
       <!-- Groupe 1 : Facture -->
       <!-- Group 1 : Bill -->
       <div class="form-group">
@@ -63,8 +70,10 @@
           <input type="number" id="people" name="people" placeholder="0" min="0">
         </div>
       </div>  
-    </form>
 
+      <!-- Bouton Submit masqué pour satisfaire les critères HTML sémantiques -->
+      <button type="submit" class="sr-only" tabindex="-1">Calculate</button>
+      </form>
 
       <!-- Bloc 4 : Résultats du calculateur -->
       <!-- Bloc 4 : Calculator results -->
@@ -96,10 +105,12 @@
       </div>
 
   </div>
+</main>
 
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Kaïna SLIMANI</a>.
+    Coded by <a href="https://github.com/kaina-slimani" target="_blank" rel="noopener">Kaïna SLIMANI</a>.
   </footer>
+
 </body>
 </html>

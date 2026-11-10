@@ -69,7 +69,7 @@ customTipInput.addEventListener('input', function () {
     });
 
     // 2. Récupérer et convertir la valeur tapée dans le champ Custom // 2. Retrieve and convert value typed in Custom field
-    let customVal = parseFloat(customTipInput.value);
+    const customVal = parseFloat(customTipInput.value);
 
     // 3. Vérifier si la valeur est un nombre valide // 3. Check if value is a valid number
     if (!isNaN(customVal) && customVal >= 0) {

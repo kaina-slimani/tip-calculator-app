@@ -241,19 +241,27 @@ p.subtitle {
 }
 
 .attribution {
-      font-size: 0.6875rem;
+      font-family: inherit;
+      font-size: 0.75rem;
       text-align: center;
+      color: var(--grey-500);
       padding-bottom: 10px;
       margin-top: auto;
     }
 
 .attribution a {
       color: hsl(228, 45%, 44%);
+      font-weight: bold;
+      text-decoration: none;
     }
 
+.attribution a:hover {
+      color: var(--green-400);
+      text-decoration: underline;
+    }
 
 /* Version ordinateur (2 colonnes égales côte à côte) // Desktop version (2 equal columns side by side) */
-@media (min-width: 768px) 
+@media (min-width: 48em) /* 768px / 48em -> bonnes pratiques/best practices */
 {
     .card-tips {
         /* 2 colonnes égales côte à côte // 2 equal columns side by side */
@@ -265,4 +273,17 @@ p.subtitle {
     .tip-options {
         grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
+/* Style pour masquer les éléments tout en restant lisibles par les lecteurs d'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
